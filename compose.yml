@@ -5,28 +5,28 @@ services:
     restart: always
     ports:
       - "3000:3000"
-      - "5555:5555"
     networks:
       - backend-network
     env_file:
       - ./.env
     depends_on:
-      - database
+      - mongo
       - redis
-
-  database:
-    image: postgres:latest
+   
+  mongo:
+    image: mongo:latest
     restart: always
     ports:
-      - "5432:5432"
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
     networks:
       - backend-network
-    environment:
-      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
-      POSTGRES_DB: ${DATABASE_NAME}
     volumes:
-      - db-data:/var/lib/postgresql/data
-  
+      - mongo-data:/data/db
+      - mongo-config:/data/configdb
+
   redis:
     image: redis:latest
     restart: always
@@ -40,8 +40,9 @@ services:
       /bin/sh -c "redis-server --requirepass ${REDIS_PASSWORD}"
 
 volumes:
-  db-data:
   redis-data:
+  mongo-data:
+  mongo-config:
 
 networks:
   backend-network:

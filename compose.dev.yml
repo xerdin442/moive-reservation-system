@@ -9,4 +9,4 @@ services:
     environment:
       - NODE_ENV=development
     command: >
-      sh -c "npm run deploy && npm run start:dev"
+      sh -c "npm run start:dev"
