@@ -6,6 +6,12 @@ import { ConfigModule } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { BullModule } from '@nestjs/bull';
 import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
+import { MetricsModule } from './metrics/metrics.module';
+import { PaymentsModule } from './payments/payments.module';
+import { CinemaModule } from './cinema/cinema.module';
+import { ReservationsModule } from './reservations/reservations.module';
+import { AdminModule } from './admin/admin.module';
+import { MovieModule } from './movie/movie.module';
 
 @Module({
   imports: [
@@ -32,6 +38,12 @@ import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
         limit: Secrets.RATE_LIMIT_PER_MINUTE,
       },
     ]),
+    MetricsModule,
+    PaymentsModule,
+    CinemaModule,
+    ReservationsModule,
+    AdminModule,
+    MovieModule,
   ],
   providers: [
     {
