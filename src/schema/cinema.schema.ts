@@ -18,7 +18,13 @@ export class Cinema {
   apiKey: string;
 
   @Prop({ default: false })
-  usdcPayments: boolean;
+  usdcTransactions: boolean;
+
+  @Prop()
+  solWallet: string;
+
+  @Prop()
+  ethWallet: string;
 
   @Prop({ default: false })
   enableSubscriptions: boolean;

@@ -30,6 +30,8 @@ export const Secrets = {
   AWS_S3_BUCKET_NAME: config.getOrThrow<string>('AWS_S3_BUCKET_NAME'),
   HELIUS_API_KEY: config.getOrThrow<string>('HELIUS_API_KEY'),
   ALCHEMY_API_KEY: config.getOrThrow<string>('ALCHEMY_API_KEY'),
+  COINGECKO_API_KEY: config.getOrThrow<string>('COINGECKO_API_KEY'),
+  THIRDWEB_API_KEY: config.getOrThrow<string>('THIRDWEB_API_KEY'),
 };
 
 // Initialize AWS SecretsManager Client
