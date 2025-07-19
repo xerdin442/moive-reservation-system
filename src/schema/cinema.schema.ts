@@ -26,9 +26,6 @@ export class Cinema {
   @Prop()
   ethWallet: string;
 
-  @Prop({ default: false })
-  enableSubscriptions: boolean;
-
   @Prop({ required: true })
   acctNumber: string;
 

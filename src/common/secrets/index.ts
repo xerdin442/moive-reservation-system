@@ -18,6 +18,12 @@ export const Secrets = {
   REDIS_PASSWORD: config.getOrThrow<string>('REDIS_PASSWORD'),
   REDIS_URL: config.getOrThrow<string>('REDIS_URL'),
   QUEUE_STORE_INDEX: config.getOrThrow<number>('QUEUE_STORE_INDEX'),
+  EMAIL_CHANGE_STORE_INDEX: config.getOrThrow<number>(
+    'EMAIL_CHANGE_STORE_INDEX',
+  ),
+  IDEMPOTENCY_KEYS_STORE_INDEX: config.getOrThrow<number>(
+    'IDEMPOTENCY_KEYS_STORE_INDEX',
+  ),
   DEFAULT_IMAGE: config.getOrThrow<string>('DEFAULT_IMAGE'),
   RESEND_EMAIL_API_KEY: config.getOrThrow<string>('RESEND_EMAIL_API_KEY'),
   APP_NAME: config.getOrThrow<string>('APP_NAME'),
